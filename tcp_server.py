@@ -35,6 +35,8 @@ def tcp_server(address: str, port: int):
 
           # クライアントが切断したら終了する
           if not data:
+            # クライアントソケットを閉じる
+            client.shutdown(socket.SHUT_RDWR)
             client.close()
             print('{} - {}'.format('Client disconnected', client_address))
             break
