@@ -23,8 +23,9 @@ def tcp_client(address: str, port: int):
       # 文字列の入力を促す
       line = input('$ ')
 
-      # 'quit'が入力されたら修了する
+      # 'quit'が入力されたら終了する
       if line == 'quit':
+        # サーバソケットを閉じる
         server.shutdown(socket.SHUT_RDWR)
         server.close()
         print('{} - {}'.format('Disconnected from server', server_address))
